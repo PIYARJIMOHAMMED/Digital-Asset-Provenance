@@ -1,0 +1,35 @@
+DIGITAL ASSET PROVENANCE — SAMPLE ASSET PROVENANCE / LICENSING STATEMENT
+
+Project:
+Digital Asset Provenance (Academic Project 8 — Code A8)
+
+Assets covered:
+- asset_001.svg
+- asset_002.svg
+
+Creator / source:
+These are student-created sample digital assets prepared specifically for the
+academic provenance demonstration.
+
+Creation method:
+Student-created SVG artwork. No third-party personal data or confidential data
+is included in the sample assets.
+
+Permission / licensing statement:
+The creator permits these sample files to be used, copied and displayed for
+this academic project, internal college evaluation, demonstration and report
+submission.
+
+Purpose:
+The files are used to demonstrate SHA-256 content commitments, ERC-721-style
+provenance records, transfer, dispute handling and independent verification.
+
+Important IP limitation:
+The blockchain record represents an assertion made by the minter about the
+asset and its provenance. A matching digest proves that supplied bytes match
+the bytes committed to the token. It does not independently prove copyright
+ownership, originality, source authenticity, legal entitlement, or the truth
+of the creator's declaration.
+
+Date:
+2026-09-28

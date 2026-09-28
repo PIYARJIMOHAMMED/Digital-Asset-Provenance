@@ -1,0 +1,13 @@
+{
+  "assetId": "asset_001",
+  "fileName": "asset_001.png",
+  "assetType": "image/png",
+  "creator": "Student",
+  "generationMethod": "AI-generated digital artwork",
+  "declaredTool": "Google Gemini",
+  "model": null,
+  "description": "AI-generated geometric digital artwork created for academic digital asset provenance demonstration.",
+  "version": "1.0",
+  "project": "Digital Asset Provenance",
+  "provenancePurpose": "NFT-based digital asset provenance verification"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "assetId": "asset_001",
+    "assetFile": "assets/asset_001.png",
+    "metadataFile": "metadata/asset_001.json",
+    "hashAlgorithm": "SHA-256",
+    "contentDigest": "3fd09810957efa59b9b40cd6b05f0410d4196482aa9ee23e6bdaac41ba26ed67",
+    "metadataDigest": "777750a20c513295962fa45bc6cea094f7b0ed939874f85227f3c0e0456bf0a3"
+  },
+  {
+    "assetId": "asset_002",
+    "assetFile": "assets/asset_002.png",
+    "metadataFile": "metadata/asset_002.json",
+    "hashAlgorithm": "SHA-256",
+    "contentDigest": "6c4767000e48c37cee897c1c6965cab3a3188be778bf78facc66ef55bd643502",
+    "metadataDigest": "e4f7e2ea8224374cc9e918e7efa79910e46a4ff0dbbf3d763d6ea8317a26c0c9"
+  }
+]

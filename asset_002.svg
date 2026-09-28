@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+    <rect width="800" height="600" fill="#172033"></rect>
+    <rect x="180" y="130" width="440" height="340" rx="30" fill="#14b8a6"></rect>
+    <circle cx="400" cy="300" r="95" fill="#ccfbf1"></circle>
+    <text x="400" y="310" text-anchor="middle" font-family="Arial" font-size="42" fill="#0f172a">
+        AI PROVENANCE 002
+    </text>
+</svg>

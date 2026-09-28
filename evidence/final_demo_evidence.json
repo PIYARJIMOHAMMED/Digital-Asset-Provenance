@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-09-28T14:39:14.216Z",
+  "project": "Digital Asset Provenance",
+  "network": "Hardhat Localhost",
+  "chainId": 31337,
+  "contractAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+  "accounts": {
+    "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "minter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "moderator": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+  },
+  "deployment": {
+    "transaction": "0xef74b10d7f03f77fcf6d4207576f5e92bbe08de6ffb60a29672d1c46223de05f",
+    "block": 7
+  },
+  "assets": [
+    {
+      "assetId": "asset_001",
+      "tokenId": "1",
+      "transaction": "0x770dcf31e0b3d55522c41a673a0612a564f57d88537abaf53991c10d3a530430",
+      "block": 8,
+      "gasUsed": "375948",
+      "contentDigest": "0x3fd09810957efa59b9b40cd6b05f0410d4196482aa9ee23e6bdaac41ba26ed67",
+      "metadataDigest": "0x777750a20c513295962fa45bc6cea094f7b0ed939874f85227f3c0e0456bf0a3"
+    },
+    {
+      "assetId": "asset_002",
+      "tokenId": "2",
+      "transaction": "0x39d80bde6045b6e1a524ac52ca422ce075e1d9f128e9a3e965e270c32953a8bb",
+      "block": 9,
+      "gasUsed": "359040",
+      "contentDigest": "0x6c4767000e48c37cee897c1c6965cab3a3188be778bf78facc66ef55bd643502",
+      "metadataDigest": "0xe4f7e2ea8224374cc9e918e7efa79910e46a4ff0dbbf3d763d6ea8317a26c0c9"
+    }
+  ],
+  "transfer": {
+    "tokenId": "1",
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "to": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "transaction": "0x12f3320b6f7ffce2b17347013e3f1668c483921bd9dd83a0db6bc8c83902e67b",
+    "block": 10,
+    "gasUsed": "62495"
+  },
+  "dispute": {
+    "tokenId": "1",
+    "disputed": true,
+    "transaction": "0xd07c8faabada6d44a1b73f5be6751191cd30bf755c8a41ee0d3e1f113812e04d",
+    "block": 11,
+    "gasUsed": "51028"
+  },
+  "verification": [
+    {
+      "assetId": "asset_001",
+      "tokenId": 1,
+      "file": "assets/asset_001.png",
+      "suppliedDigest": "0x3fd09810957efa59b9b40cd6b05f0410d4196482aa9ee23e6bdaac41ba26ed67",
+      "committedDigest": "0x3fd09810957efa59b9b40cd6b05f0410d4196482aa9ee23e6bdaac41ba26ed67",
+      "metadataDigest": "0x777750a20c513295962fa45bc6cea094f7b0ed939874f85227f3c0e0456bf0a3",
+      "creator": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "minter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "declaredTool": "Google Gemini",
+      "declaration": "AI-generated geometric digital artwork created for academic digital asset provenance demonstration.",
+      "licenseURI": "academic-demo-license",
+      "disputed": true,
+      "result": "MATCH"
+    },
+    {
+      "assetId": "asset_002",
+      "tokenId": 2,
+      "file": "assets/asset_002.png",
+      "suppliedDigest": "0x6c4767000e48c37cee897c1c6965cab3a3188be778bf78facc66ef55bd643502",
+      "committedDigest": "0x6c4767000e48c37cee897c1c6965cab3a3188be778bf78facc66ef55bd643502",
+      "metadataDigest": "0xe4f7e2ea8224374cc9e918e7efa79910e46a4ff0dbbf3d763d6ea8317a26c0c9",
+      "creator": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "minter": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "declaredTool": "Google Gemini",
+      "declaration": "AI-generated automotive blueprint-style digital artwork created for academic digital asset provenance demonstration.",
+      "licenseURI": "academic-demo-license",
+      "disputed": false,
+      "result": "MATCH"
+    }
+  ],
+  "securityTest": {
+    "passed": true,
+    "result": "REJECTED"
+  },
+  "finalStateFile": "evidence/final_blockchain_state.json",
+  "summary": {
+    "assetsRegistered": 2,
+    "assetsMinted": 2,
+    "mintingPassed": true,
+    "assetVerificationPassed": true,
+    "unauthorizedDisputeRejected": true
+  }
+}

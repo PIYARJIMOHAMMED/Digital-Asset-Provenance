@@ -1,0 +1,12 @@
+[
+  {
+    "caseId": "clean_sample",
+    "description": "Two distinct provenance records with unique content and metadata digests.",
+    "expectedAnomaly": false
+  },
+  {
+    "caseId": "duplicate_content",
+    "description": "Synthetic test record duplicates an existing content digest.",
+    "expectedAnomaly": true
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-09-28T14:39:14.216Z",
+  "network": "Hardhat Localhost",
+  "chainId": 31337,
+  "contractAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+  "tests": {
+    "deployment": "PASS",
+    "minting": "PASS",
+    "transfer": "PASS",
+    "moderatorDispute": "PASS",
+    "assetVerification": "PASS",
+    "unauthorizedDispute": "PASS"
+  },
+  "counts": {
+    "registered": 2,
+    "minted": 2,
+    "verified": 2,
+    "matched": 2
+  }
+}
