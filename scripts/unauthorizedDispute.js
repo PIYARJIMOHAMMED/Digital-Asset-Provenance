@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import hre from "hardhat";
 import fs from "fs";
 import path from "path";
 
@@ -7,38 +7,41 @@ async function main() {
     console.log("UNAUTHORIZED DISPUTE TEST");
     console.log("==============================================");
 
-    const deployment = JSON.parse(
-        fs.readFileSync(
-            path.resolve("evidence", "deployment.json"),
-            "utf8"
-        )
+    const { ethers } = await hre.network.connect();
+    const signers = await ethers.getSigners();
+
+    const unauthorizedUser = signers[1];
+
+    const deploymentPath = path.resolve(
+        "evidence",
+        "deployment.json"
     );
 
-    const rpc = deployment.rpc || "http://127.0.0.1:8545";
+    const deployment = JSON.parse(
+        fs.readFileSync(deploymentPath, "utf8")
+    );
+
     const contractAddress = deployment.contractAddress;
-    const tokenId = 1;
 
-    const provider = new ethers.JsonRpcProvider(rpc);
+    if (!contractAddress) {
+        throw new Error("Contract address not found in deployment.json.");
+    }
 
-    // Hardhat local account #1.
-    // The private key is NOT stored in the project; this is supplied
-    // only by the local Hardhat development node.
-    const unauthorizedUser = await provider.getSigner(1);
-
-    const unauthorizedAddress = await unauthorizedUser.getAddress();
-
-    const contract = new ethers.Contract(
+    const contract = await ethers.getContractAt(
+        "DigitalAssetProvenance",
         contractAddress,
-        [
-            "function setDispute(uint256 tokenId, bool disputed)"
-        ],
         unauthorizedUser
     );
 
+    const tokenId = 1;
+
     console.log("\nContract:", contractAddress);
-    console.log("RPC:", rpc);
     console.log("Token ID:", tokenId);
-    console.log("Unauthorized account:", unauthorizedAddress);
+    console.log("Unauthorized account:", unauthorizedUser.address);
+
+    const currentDisputeStatus = await contract.isDisputed(tokenId);
+
+    console.log("Current disputed status:", currentDisputeStatus);
 
     console.log("\nAttempting unauthorized dispute update...");
 
