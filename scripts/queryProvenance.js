@@ -1,65 +1,60 @@
-import hre from "hardhat";
+import { ethers } from "ethers";
+
+const RPC_URL = process.env.RPC_URL || "http://127.0.0.1:8545";
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
+
+if (!CONTRACT_ADDRESS) {
+    console.error("ERROR: CONTRACT_ADDRESS environment variable is required.");
+    process.exit(1);
+}
+
+const tokenId = process.argv[2] || "1";
+
+const provider = new ethers.JsonRpcProvider(RPC_URL);
+
+const contract = new ethers.Contract(
+    CONTRACT_ADDRESS,
+    [
+        "function getProvenance(uint256 tokenId) view returns (tuple(bytes32 contentDigest, bytes32 metadataDigest, address creator, address minter, string declaration, string declaredTool, string licenseURI, bool disputed, uint256 createdAt))",
+        "function ownerOf(uint256 tokenId) view returns (address)"
+    ],
+    provider
+);
 
 async function main() {
-    const { ethers } = await hre.network.connect();
-
-    const contractAddress = process.env.CONTRACT_ADDRESS;
-
-    if (!contractAddress) {
-        throw new Error(
-            "CONTRACT_ADDRESS environment variable is required."
-        );
-    }
-
-    const contract = await ethers.getContractAt(
-        "DigitalAssetProvenance",
-        contractAddress
-    );
-
-    const tokenId = 1;
-
     console.log("==========================================");
     console.log("DIGITAL ASSET PROVENANCE");
     console.log("==========================================");
+    console.log(`Contract : ${CONTRACT_ADDRESS}`);
+    console.log(`RPC      : ${RPC_URL}`);
+    console.log(`Token ID : ${tokenId}`);
+    console.log();
 
-    const record = await contract.getProvenance(tokenId);
+    const provenance = await contract.getProvenance(tokenId);
+    const owner = await contract.ownerOf(tokenId);
 
-    console.log("Token ID:", tokenId);
-    console.log("Content Digest:", record.contentDigest);
-    console.log("Metadata Digest:", record.metadataDigest);
+    console.log("PROVENANCE");
+    console.log("------------------------------------------");
+    console.log(`Content Digest  : ${provenance.contentDigest}`);
+    console.log(`Metadata Digest : ${provenance.metadataDigest}`);
+    console.log(`Creator         : ${provenance.creator}`);
+    console.log(`Minter          : ${provenance.minter}`);
+    console.log(`Declared Tool   : ${provenance.declaredTool}`);
+    console.log(`Declaration     : ${provenance.declaration}`);
+    console.log(`License URI     : ${provenance.licenseURI}`);
+    console.log(`Disputed        : ${provenance.disputed}`);
+    console.log(`Created At      : ${provenance.createdAt}`);
 
-    // These fields depend on your contract's exact struct.
-    console.log("Creator:", record.creator);
-
-    if (record.minter !== undefined) {
-        console.log("Minter:", record.minter);
-    }
-
-    if (record.declaration !== undefined) {
-        console.log("Declaration:", record.declaration);
-    }
-
-    if (record.declaredTool !== undefined) {
-        console.log("Declared Tool:", record.declaredTool);
-    }
-
-    if (record.licenseURI !== undefined) {
-        console.log("License URI:", record.licenseURI);
-    }
-
-    if (record.disputed !== undefined) {
-        console.log("Disputed:", record.disputed);
-    }
-
-    if (record.createdAt !== undefined) {
-        console.log("Created At:", record.createdAt.toString());
-    }
+    console.log();
+    console.log("CURRENT TOKEN OWNER");
+    console.log("------------------------------------------");
+    console.log(owner);
 
     console.log("==========================================");
 }
 
 main().catch((error) => {
-    console.error("\nQUERY FAILED");
+    console.error("QUERY FAILED");
     console.error(error);
-    process.exitCode = 1;
+    process.exit(1);
 });

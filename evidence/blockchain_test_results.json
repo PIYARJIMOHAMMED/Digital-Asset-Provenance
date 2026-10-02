@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-28T14:39:14.216Z",
+  "generatedAt": "2026-10-02T11:25:06.264Z",
   "network": "Hardhat Localhost",
   "chainId": 31337,
-  "contractAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+  "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
   "tests": {
     "deployment": "PASS",
     "minting": "PASS",
@@ -12,9 +12,9 @@
     "unauthorizedDispute": "PASS"
   },
   "counts": {
-    "registered": 2,
-    "minted": 2,
-    "verified": 2,
-    "matched": 2
+    "registered": 3,
+    "minted": 3,
+    "verified": 3,
+    "matched": 3
   }
 }

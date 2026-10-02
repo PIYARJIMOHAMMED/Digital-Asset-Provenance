@@ -46,9 +46,6 @@ def create_metadata(asset_id, image_file, tool):
 
     if existing:
         metadata = existing
-
-        # Keep the important existing provenance information,
-        # but make sure the file information is current.
         metadata["assetId"] = asset_id
         metadata["fileName"] = image_file.name
         metadata["assetType"] = "image/png"
@@ -181,7 +178,7 @@ def main():
     print(f"Assets registered : {len(records)}")
     print(f"Manifest          : {MANIFEST_FILE}")
     print()
-    print("Generated automatically:")
+    print("Generated:")
     print("  - metadata/*.json")
     print("  - evidence/day2_hashes.json")
     print("=" * 70)

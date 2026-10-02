@@ -10,6 +10,7 @@ async function main() {
     const contractAddress = process.env.CONTRACT_ADDRESS;
 
     if (!contractAddress) {
+        
         throw new Error("CONTRACT_ADDRESS environment variable is not set.");
     }
 

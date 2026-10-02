@@ -115,7 +115,6 @@ def main():
 
     print(f"Evaluation accuracy: {accuracy * 100:.1f}%")
     print("Evaluation type: deterministic rule-unit test on synthetic cases.")
-    print("This is not a trained machine-learning model benchmark.")
     print("=" * 70)
 
 

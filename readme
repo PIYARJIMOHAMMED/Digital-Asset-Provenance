@@ -1,0 +1,149 @@
+### Complete practical — start to end
+
+**1. Start Blockchain**
+
+```powershell
+npx hardhat node
+```
+
+**2. Compile Contract**
+
+```powershell
+npx hardhat compile
+```
+
+**3. Smart Contract Tests**
+
+```powershell
+npx hardhat test
+```
+
+**4. Register Original Assets**
+
+```powershell
+python .\scripts\register_assets.py --tool "Google Gemini"
+```
+
+**5. AI — Normal / No Anomaly**
+
+```powershell
+python .\ai\anomaly_detector.py
+```
+
+**6. Create Anomaly — Duplicate Asset**
+
+```powershell
+Copy-Item .\assets\asset_001.png .\assets\asset_001_duplicate.png
+```
+
+**7. Register Duplicate**
+
+```powershell
+python .\scripts\register_assets.py --tool "Google Gemini"
+```
+
+**8. AI — Detect Anomaly**
+
+```powershell
+python .\ai\anomaly_detector.py
+```
+
+Expected:
+
+```text
+Anomalies detected: 1
+DUPLICATE_CONTENT_DIGEST
+```
+
+**9. Show Which Asset Is Anomaly**
+
+```powershell
+python .\ai\anomaly_detector.py
+```
+
+It should show the duplicate asset IDs sharing the same content digest.
+
+**10. Remove Test Anomaly**
+
+```powershell
+Remove-Item .\assets\asset_001_duplicate.png
+```
+
+**11. Restore Clean Asset Evidence**
+
+```powershell
+python .\scripts\register_assets.py --tool "Google Gemini"
+```
+
+**12. Confirm No Anomaly Again**
+
+```powershell
+python .\ai\anomaly_detector.py
+```
+
+Expected:
+
+```text
+Anomalies detected: 0
+Current sample result: NO ANOMALIES
+```
+
+---
+
+### Blockchain Demo
+
+**13. Complete Blockchain Demo**
+
+```powershell
+npx hardhat run .\scripts\run_full_demo.js --network localhost
+```
+
+**14. Original Asset — MATCH**
+
+```powershell
+node .\verification\verify_against_blockchain.js 1 .\assets\asset_001.png
+```
+
+Expected:
+
+```text
+VERIFICATION RESULT: MATCH
+```
+
+**15. Tampered Image — MISMATCH**
+
+```powershell
+node .\verification\test_tampered_asset.js
+```
+
+Expected:
+
+```text
+VERIFICATION RESULT: MISMATCH
+```
+
+**16. Token 2 Provenance**
+
+```powershell
+npx hardhat run .\scripts\queryTokenTwo.js --network localhost
+```
+
+**17. Token 1 Provenance / Dispute**
+
+```powershell
+$env:TOKEN_ID="1"
+npx hardhat run .\scripts\queryProvenance.js --network localhost
+node .\scripts\queryProvenance.js 1
+```
+
+Expected:
+
+```text
+Disputed: true
+```
+
+**18. Dashboard**
+
+```powershell
+python -m streamlit run .\client\app.py
+```
